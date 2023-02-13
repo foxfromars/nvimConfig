@@ -7,15 +7,9 @@ return require('packer').startup(function(use)
   use 'lukas-reineke/lsp-format.nvim'
   use 'tpope/vim-commentary'
   use 'jose-elias-alvarez/null-ls.nvim'
-  use {
-    'nvim-lualine/lualine.nvim',
-    requires = { 'kyazdani42/nvim-web-devicons', opt = true }
-  }
+  use 'nvim-lualine/lualine.nvim'
   use {
     'nvim-tree/nvim-tree.lua',
-    requires = {
-      'nvim-tree/nvim-web-devicons', -- optional, for file icons
-    },
     tag = 'nightly' -- optional, updated every week. (see issue #1193)
   }
   use {
@@ -36,13 +30,17 @@ return require('packer').startup(function(use)
   "folke/trouble.nvim",
   requires = "nvim-tree/nvim-web-devicons",
   config = function()
-    require("trouble").setup {
-      -- your configuration comes here
-      -- or leave it empty to use the default settings
-      -- refer to the configuration section below
-    }
+    require("trouble").setup()
   end
   }
+  use({
+    "glepnir/lspsaga.nvim",
+    branch = "main",
+    config = function()
+        require("lspsaga").setup({})
+    end,
+  })
+  use('jose-elias-alvarez/typescript.nvim')
   use {
   'VonHeikemen/lsp-zero.nvim',
   requires = {

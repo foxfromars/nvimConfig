@@ -16,3 +16,6 @@ vim.keymap.set("n", "<leader>sx", ":close<CR>") --close split
 vim.keymap.set("n", "<leader>tt", ":NvimTreeToggle<CR>") --Toggle file tree
 vim.keymap.set("n", "<leader>tf", ":NvimTreeFocus<CR>") --Focus file tree
 vim.keymap.set("n", "<leader>tc", ":NvimTreeCollapse<CR>") --Collapses the file tree
+
+-- lsp-saga keymaps
+vim.keymap.set("n", "<leader><CR>", ":Lspsaga term_toggle<CR>") -- open terminal
