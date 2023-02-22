@@ -41,6 +41,8 @@ return require('packer').startup(function(use)
     end,
   })
   use('jose-elias-alvarez/typescript.nvim')
+  use('pwntester/nvim-lsp')
+  use ('simrat39/rust-tools.nvim')
   use {
   'VonHeikemen/lsp-zero.nvim',
   requires = {
