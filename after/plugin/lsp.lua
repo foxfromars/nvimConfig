@@ -5,17 +5,8 @@ lsp.setup()
 
 
 local rt = require("rust-tools")
+local clangD = require("clangd_extensions")
 
-rt.setup({
-  server = {
-    on_attach = function(_, bufnr)
-      -- Hover actions
-      vim.keymap.set("n", "<C-space>", rt.hover_actions.hover_actions, { buffer = bufnr })
-      -- Code action groups
-      vim.keymap.set("n", "<Leader>a", rt.code_action_group.code_action_group, { buffer = bufnr })
-    end,
-  },
-})
 
 -- import lspconfig plugin safely
 local lspconfig_status, lspconfig = pcall(require, "lspconfig")
@@ -29,8 +20,7 @@ if not cmp_nvim_lsp_status then
   return
 end
 
--- import typescript plugin safely
-local typescript_setup, typescript = pcall(require, "typescript")
+-- import typescript plugin safely local typescript_setup, typescript = pcall(require, "typescript")
 if not typescript_setup then
   return
 end
@@ -38,9 +28,9 @@ end
 local keymap = vim.keymap -- for conciseness
 
 -- enable keybinds only for when lsp server available
-local on_attach = function(client, bufnr)
+local on_attach = function(client)
   -- keybind options
-  local opts = { silent = true, buffer = bufnr }
+  local opts = { silent = true }
 
   -- set keybinds
   keymap.set("n", "gf", "<cmd>Lspsaga lsp_finder<CR>", opts) -- show definition, references
@@ -76,10 +66,35 @@ typescript.setup({
   },
 })
 
+-- configure rust server with plugin
+rt.setup({
+  server = {
+    on_attach = function(_, bufnr)
+      -- Hover actions
+      vim.keymap.set("n", "<C-space>", rt.hover_actions.hover_actions, { buffer = bufnr })
+      -- Code action groups
+      vim.keymap.set("n", "<Leader>a", rt.code_action_group.code_action_group, { buffer = bufnr })
+    end,
+  },
+})
+
+--configure clangD server with plugin
+clangD.setup();
+
 -- configure emmet language server
 lspconfig["emmet_ls"].setup({
   capabilities = capabilities,
   on_attach = on_attach,
-  filetypes = { "html", "typescriptreact", "javascriptreact", "css", "sass", "scss", "less", "svelte" },
+  filetypes = { 
+    "html", 
+    "typescriptreact", 
+    "javascriptreact", 
+    "css", 
+    "sass", 
+    "scss", 
+    "less", 
+    "svelte" 
+  },
 })
+
 

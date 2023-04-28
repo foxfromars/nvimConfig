@@ -84,6 +84,11 @@ _G.packer_plugins = {
     path = "/home/fox/.local/share/nvim/site/pack/packer/start/auto-pairs",
     url = "https://github.com/jiangmiao/auto-pairs"
   },
+  ["clangd_extensions.nvim"] = {
+    loaded = true,
+    path = "/home/fox/.local/share/nvim/site/pack/packer/start/clangd_extensions.nvim",
+    url = "https://github.com/p00f/clangd_extensions.nvim"
+  },
   ["cmp-buffer"] = {
     loaded = true,
     path = "/home/fox/.local/share/nvim/site/pack/packer/start/cmp-buffer",
@@ -113,6 +118,16 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/fox/.local/share/nvim/site/pack/packer/start/friendly-snippets",
     url = "https://github.com/rafamadriz/friendly-snippets"
+  },
+  gruvbox = {
+    loaded = true,
+    path = "/home/fox/.local/share/nvim/site/pack/packer/start/gruvbox",
+    url = "https://github.com/morhetz/gruvbox"
+  },
+  ["kanagawa.nvim"] = {
+    loaded = true,
+    path = "/home/fox/.local/share/nvim/site/pack/packer/start/kanagawa.nvim",
+    url = "https://github.com/rebelot/kanagawa.nvim"
   },
   ["lsp-format.nvim"] = {
     loaded = true,

@@ -3,9 +3,11 @@ vim.cmd [[packadd packer.nvim]]
 
 return require('packer').startup(function(use)
   -- Packer can manage itself
+  use "rebelot/kanagawa.nvim"
   use 'wbthomason/packer.nvim'
   use 'lukas-reineke/lsp-format.nvim'
   use 'tpope/vim-commentary'
+  use "morhetz/gruvbox"
   use 'jose-elias-alvarez/null-ls.nvim'
   use 'nvim-lualine/lualine.nvim'
   use {
@@ -43,6 +45,7 @@ return require('packer').startup(function(use)
   use('jose-elias-alvarez/typescript.nvim')
   use('pwntester/nvim-lsp')
   use ('simrat39/rust-tools.nvim')
+  use ('p00f/clangd_extensions.nvim')
   use {
   'VonHeikemen/lsp-zero.nvim',
   requires = {
