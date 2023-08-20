@@ -6,6 +6,6 @@ local sources = {
   formatting.eslint,
   formatting.stylua,
   formatting.rustfmt,
-  formatting.astyle,
+  formatting.clang_format,
   formatting.autopep8,
 }

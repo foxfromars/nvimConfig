@@ -3,10 +3,16 @@ lsp.preset('recommended')
 
 lsp.setup()
 
-
-local rt = require("rust-tools")
-local clangD = require("clangd_extensions")
-
+-- rust language
+local rt_status, rt = pcall(require, "rust-tools")
+if not rt_status then
+  return
+end
+-- c and cpp language
+local clangD_status, clangD = pcall(require,"clangd_extensions")
+if not clangD_status then
+  return
+end
 
 -- import lspconfig plugin safely
 local lspconfig_status, lspconfig = pcall(require, "lspconfig")
@@ -80,6 +86,8 @@ rt.setup({
 
 --configure clangD server with plugin
 clangD.setup();
+require("clangd_extensions.inlay_hints").setup_autocmd()
+require("clangd_extensions.inlay_hints").set_inlay_hints()
 
 -- configure emmet language server
 lspconfig["emmet_ls"].setup({

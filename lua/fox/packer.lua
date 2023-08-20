@@ -4,10 +4,11 @@ vim.cmd [[packadd packer.nvim]]
 return require('packer').startup(function(use)
   -- Packer can manage itself
   use "rebelot/kanagawa.nvim"
+  use 'nyoom-engineering/oxocarbon.nvim'
+  use "maxmx03/fluoromachine.nvim"
   use 'wbthomason/packer.nvim'
   use 'lukas-reineke/lsp-format.nvim'
   use 'tpope/vim-commentary'
-  use "morhetz/gruvbox"
   use 'jose-elias-alvarez/null-ls.nvim'
   use 'nvim-lualine/lualine.nvim'
   use {
@@ -19,13 +20,6 @@ return require('packer').startup(function(use)
 	  -- or                            , branch = '0.1.x',
 	  requires = { {'nvim-lua/plenary.nvim'} }
   }
-  use({
-	  'rose-pine/neovim',
-	  as = 'rose-pine',
-	  config = function()
-		  vim.cmd('colorscheme rose-pine')
-	  end
-  })
   use('nvim-treesitter/nvim-treesitter', {run= ':TSUpdate'})
   use('jiangmiao/auto-pairs')
   use {
@@ -67,5 +61,9 @@ return require('packer').startup(function(use)
     -- Snippet Collection (Optional)
     {'rafamadriz/friendly-snippets'},
   }
+
 }
+  -- Debugging tools
+  use("mfussenegger/nvim-dap")
+  use("rcarriga/nvim-dap-ui")
   end)

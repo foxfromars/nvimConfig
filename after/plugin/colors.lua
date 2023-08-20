@@ -1,10 +1,5 @@
---colorschemes
----rose-pine
----kanagawa
---gruvbox
-
 function ColorMyPencils(color)
-	color = color or "gruvbox"
+	color = color or "oxocarbon"
 	vim.cmd.colorscheme(color)
 end
 
